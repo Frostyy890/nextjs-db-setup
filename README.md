@@ -2,23 +2,82 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First, install necessary dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm run docker:dev
+```
+Run docker containers in dev mode:
+
+```bash
+pnpm run docker:dev
+```
+Next, generate migrations and push them to the database:
+
+```bash
+pnpm run migrations:generate
+pnpm run migrations:push
+```
+Next, seed the database with data:
+
+```bash
+pnpm run db:seed
+```
+Finally, run the development server:
+
+```bash
+pnpm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000/api/test](http://localhost:3000/api/test) with your browser to see the database query result.
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the web page.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
+## Useful Commands
+
+### Linting:
+
+```bash
+# check for linting errors
+pnpm run lint
+# fix linting errors
+pnpm run lint:fix
+```
+
+### Formatting:
+
+```bash
+# check for formatting errors
+pnpm run format
+# fix formatting errors
+pnpm run format:fix
+```
+
+### Docker:
+
+```bash
+# stop running docker container
+pnpm run docker:down
+# stop running docker container and purge container volumes
+pnpm run docker:purge
+```
+
+### Database and ORM:
+
+```bash
+# generate migration scripts
+pnpm run migrations:generate
+# push migrations to the database
+pnpm run migrations:push
+# seed the database with data:
+pnpm run db:seed
+# database studio to monitor changes
+pnpm run db:studio
+```
 
 ## Learn More
 
